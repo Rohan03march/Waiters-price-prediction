@@ -1,1 +1,1 @@
-# Waiters-price-prediction
+# Waiter_tips_price_prediction

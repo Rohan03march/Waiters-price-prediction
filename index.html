@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Tips price prediction</title>
+  <link rel="stylesheet" type="text/css" href="/templates/css/main.css">
+  <style>
+    body{
+      background-color: rgb(112, 86, 74);
+      
+    }
+    h1{
+        color: rgb(248, 248, 248);
+      }
+     table {
+       color: rgb(1, 247, 255);
+     } 
+  </style>
+</head>
+
+<body>
+ <div class="login">
+	<h1 align="center" >Waiter's tips Price_Predictions</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}" method="post" align="center" >
+    	<table align="center" cellpadding="10px" cellspacing='3px' border ="1px">
+        <tr>
+          <td>
+            <h3>Total_bill <br>
+              
+            </h3>
+          </td>
+            <td>
+              <input name="total_bill" type="text">
+            </td>  
+        </tr>
+        <tr>
+          <td><h3>Sex <br>
+            (if male type 1 ,if female type 0)
+          </h3>
+          </td>
+          <td><input type="text" name='sex' >
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h3>day<br>
+              (if Thur type 0,Fri type 1 <br>
+              Sat type 2, Sun type 3)
+            </h3>
+          </td>
+            <td>
+              <input name="Day" type="text">
+            </td>  
+        </tr>
+        <tr>
+          <td>
+            <h3>Time<br>
+              (if Dinner type 1, if Lunch type 0)
+            </h3>
+          </td>
+            <td>
+              <input name="Time" type="text">
+            </td>  
+        </tr>
+        <tr>
+          <td>
+            <h3>Size<br>
+              (Type <=6)
+            </h3>
+          </td>
+            <td>
+              <input name="Size" type="text">
+            </td>  
+        </tr>
+        <br>
+        <br>
+        <tr>
+          <td align="center">
+            <input type="submit" value="Submit">
+          </td>
+          <td>  
+            <input type="reset" values="Reset">
+          </td>
+        </tr>
+    
+      </table>
+    </form>
+
+   <br>
+   <br>
+   <h1>
+   {{ prediction_text }}
+  </h1>
+ </div>
+
+
+</body>
+</html>
